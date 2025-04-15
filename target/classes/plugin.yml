@@ -1,0 +1,5 @@
+name: KinderBueno
+version: '1.0-SNAPSHOT'
+main: me.hieu.kinder.Bueno
+api-version: '1.21'
+depend: [Libraries]

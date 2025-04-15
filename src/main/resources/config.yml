@@ -1,0 +1,7 @@
+database:
+  mongo:
+    uri: "mongodb://localhost:27017"
+    database: "KinderBueno"
+
+settings:
+  creeper-explosion: true

@@ -1,0 +1,5 @@
+name: KinderBueno
+version: '${project.version}'
+main: me.hieu.kinder.Bueno
+api-version: '1.21'
+depend: [Libraries]
