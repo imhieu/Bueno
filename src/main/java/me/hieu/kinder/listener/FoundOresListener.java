@@ -60,45 +60,51 @@ public class FoundOresListener implements Listener {
             switch (event.getBlock().getType()){
                 case NETHERITE_BLOCK:
                     int oresCountNetherite = countRelativeNetherite(event.getBlock());
-                    profile.getOresMap().put("netherite", profile.getOresMap().get("netherite") + 1);
+                    profile.getOresMap().put("netherite", profile.getOresMap().get("netherite") + oresCountNetherite);
                     Bukkit.broadcastMessage(CC.translate("&f[FN] &d" + event.getPlayer().getName() + " found " + oresCountNetherite + " netherite" + (oresCountNetherite == 1 ? "" : "s") + "."));
                     profile.save();
                     break;
                 case DIAMOND_ORE:
                 case DEEPSLATE_DIAMOND_ORE:
                     int oresCountDiamonds = countRelativeDiamond(event.getBlock());
-                    profile.getOresMap().put("diamond", profile.getOresMap().get("diamond") + 1);
+                    profile.getOresMap().put("diamond", profile.getOresMap().get("diamond") + oresCountDiamonds);
                     Bukkit.broadcastMessage(CC.translate("&f[FD] &b" + event.getPlayer().getName() + " found " + oresCountDiamonds + " diamond" + (oresCountDiamonds == 1 ? "" : "s") + "."));
                     profile.save();
                     break;
                 case EMERALD_ORE:
                 case DEEPSLATE_EMERALD_ORE:
-                    profile.getOresMap().put("emerald", profile.getOresMap().get("emerald") + 1);
+                    int oresCountEmerald = countRelativeDiamond(event.getBlock());
+                    profile.getOresMap().put("emerald", profile.getOresMap().get("emerald") + oresCountEmerald);
                     profile.save();
                     break;
                 case REDSTONE_ORE:
                 case DEEPSLATE_REDSTONE_ORE:
-                    profile.getOresMap().put("redstone", profile.getOresMap().get("redstone") + 1);
+                    int oresCountRedstone = countRelativeDiamond(event.getBlock());
+                    profile.getOresMap().put("redstone", profile.getOresMap().get("redstone") + oresCountRedstone);
                     profile.save();
                     break;
                 case LAPIS_ORE:
                 case DEEPSLATE_LAPIS_ORE:
-                    profile.getOresMap().put("lapis", profile.getOresMap().get("lapis") + 1);
+                    int oresCountLapis = countRelativeDiamond(event.getBlock());
+                    profile.getOresMap().put("lapis", profile.getOresMap().get("lapis") + oresCountLapis);
                     profile.save();
                     break;
                 case GOLD_ORE:
                 case DEEPSLATE_GOLD_ORE:
-                    profile.getOresMap().put("gold", profile.getOresMap().get("gold") + 1);
+                    int oresCountGold = countRelativeDiamond(event.getBlock());
+                    profile.getOresMap().put("gold", profile.getOresMap().get("gold") + oresCountGold);
                     profile.save();
                     break;
                 case IRON_ORE:
                 case DEEPSLATE_IRON_ORE:
-                    profile.getOresMap().put("iron", profile.getOresMap().get("iron") + 1);
+                    int oresCountIron = countRelativeDiamond(event.getBlock());
+                    profile.getOresMap().put("iron", profile.getOresMap().get("iron") + oresCountIron);
                     profile.save();
                     break;
                 case COAL_ORE:
                 case DEEPSLATE_COAL_ORE:
-                    profile.getOresMap().put("coal", profile.getOresMap().get("coal") + 1);
+                    int oresCountCoal = countRelativeDiamond(event.getBlock());
+                    profile.getOresMap().put("coal", profile.getOresMap().get("coal") + oresCountCoal);
                     profile.save();
                     break;
             }

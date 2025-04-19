@@ -92,24 +92,24 @@ public class BoardHandler {
     }
 
     private void setupFooters(){
-        this.footers = new ArrayList<>();
-        this.footers.add(CC.translate("&7/location"));
-        this.footers.add(CC.translate("&7/track"));
-        this.footers.add(CC.translate("&7/message"));
-        this.footers.add(CC.translate("&7/reply"));
-        this.footers.add(CC.translate("&7/warps"));
-        this.footers.add(CC.translate("&7/warp"));
-        this.footers.add(CC.translate("&7/statistics"));
-        this.footers.add(CC.translate("&7/shop"));
-        this.footers.add(CC.translate("&7/sell"));
-        this.footers.add(CC.translate("&7/buy"));
-        this.footers.add(CC.translate("&7/balance"));
-        this.footers.add(CC.translate("&7/pay"));
-        this.footers.add(CC.translate("&7/backpack"));
-        this.footers.add(CC.translate("&7/vote"));
-        this.footers.add(CC.translate("&7/mobcatch"));
-        this.footers.add(CC.translate("&7/currency"));
-        this.currentFooter = this.footers.get(0);
+        footers = new ArrayList<>();
+        footers.add(CC.translate("&7/location"));
+        footers.add(CC.translate("&7/track"));
+        footers.add(CC.translate("&7/message"));
+        footers.add(CC.translate("&7/reply"));
+        footers.add(CC.translate("&7/warps"));
+        footers.add(CC.translate("&7/warp"));
+        footers.add(CC.translate("&7/statistics"));
+        //this.footers.add(CC.translate("&7/shop"));
+        footers.add(CC.translate("&7/sell"));
+        //this.footers.add(CC.translate("&7/buy"));
+        footers.add(CC.translate("&7/balance"));
+        footers.add(CC.translate("&7/pay"));
+        footers.add(CC.translate("&7/backpack"));
+        footers.add(CC.translate("&7/vote"));
+        //footers.add(CC.translate("&7/mobcatch"));
+        footers.add(CC.translate("&7/currency"));
+        currentFooter = this.footers.get(0);
     }
 
     private String createFireEffect(String text, Color[] fireColors) {

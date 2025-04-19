@@ -43,13 +43,13 @@ public class ProfileProvider extends DrinkProvider<Profile> {
 
     @Nullable
     @Override
-    public Profile provide(@Nonnull CommandArg arg, @Nonnull List<? extends Annotation> annotations) {
+    public Profile provide(@Nonnull CommandArg arg, @Nonnull List<? extends Annotation> annotations) throws CommandExitMessage {
         String name = arg.get();
         if (name == null) return null;
         try {
             return Bueno.getInstance().getProfileHandler().getProfileByName(name);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new CommandExitMessage("No profile with the name '" + name + "'.");
         }
     }
 

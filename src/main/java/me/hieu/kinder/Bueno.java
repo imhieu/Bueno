@@ -91,8 +91,8 @@ public class Bueno extends JavaPlugin {
         commandService.register(new WarpsCommand(), "warps", "");
         commandService.register(new WarpCreateCommand(), "warp", "");
         commandService.register(new StatisticsCommand(), "statistics", "statistic", "stats", "stat");
-        commandService.register(new ShopCommand(), "shop", "");
-        commandService.register(new BuyCommand(), "buy", "");
+        //commandService.register(new ShopCommand(), "shop", "");
+        //commandService.register(new BuyCommand(), "buy", "");
         commandService.register(new SellCommand(), "sell", "");
         commandService.register(new BalanceCommand(), "balance", "bal", "$");
         commandService.register(new PayCommand(), "pay", "");

@@ -10,6 +10,7 @@ import me.hieu.libraries.menu.Button;
 import me.hieu.libraries.menu.menus.ConfirmMenu;
 import me.hieu.kinder.warp.Warp;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -50,13 +51,15 @@ public class WarpButton extends Button {
 
     @Override
     public void clicked(Player player, ClickType clickType) {
-        TasksUtil.runTask(player::closeInventory);
         if (player.hasMetadata("warping")){
+            TasksUtil.runTask(player::closeInventory);
             playFail(player);
             return;
         }
         if (clickType.isLeftClick()) {
+            TasksUtil.runTask(player::closeInventory);
             player.setMetadata("warping", new FixedMetadataValue(Bueno.getInstance(), "warping"));
+            Location originalLocation = player.getLocation();
             TasksUtil.runTaskTimer(new BukkitRunnable() {
                 int count = 5;
                 @Override
@@ -69,15 +72,24 @@ public class WarpButton extends Button {
                         cancel();
                         return;
                     }
+                    player.sendMessage(CC.translate("&7Warping in %...").replaceAll("%", String.valueOf(count)));
                     if (warp == null){
-                        player.sendMessage(CC.translate("&cThis warp was deleted!"));
+                        player.sendMessage(CC.translate("&cThis warp was deleted."));
                         player.removeMetadata("warping", Bueno.getInstance());
                         playFail(player);
                         cancel();
+                        return;
                     }
-                    player.sendMessage(CC.translate("&7Warping in %...").replaceAll("%", String.valueOf(count)));
-                    Button.playNeutral(player);
+                    Location currentLocation = player.getLocation();
+                    if (currentLocation.getX() != originalLocation.getX() || currentLocation.getY() != originalLocation.getY() || currentLocation.getZ() != originalLocation.getZ()){
+                        player.sendMessage(CC.translate("&cWarp cancelled because you moved."));
+                        player.removeMetadata("warping", Bueno.getInstance());
+                        playFail(player);
+                        cancel();
+                        return;
+                    }
                     count = count - 1;
+                    Button.playNeutral(player);
                 }
             }, 0L, 20L);
             return;
